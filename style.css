@@ -240,11 +240,83 @@ footer .copyright em {
   color: var(--muted);
 }
 
+/* ── ARCHIVE SECTION ────────────────────────────────────── */
+.archive-section {
+  padding: 56px 0 64px;
+  border-top: 0.5px solid var(--rule);
+}
+
+.archive-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.archive-row {
+  border-bottom: 0.5px solid var(--rule);
+}
+
+.archive-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--mono);
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 18px 0;
+  text-align: left;
+}
+
+.archive-row--empty .archive-toggle {
+  cursor: default;
+}
+
+.archive-date {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+
+.archive-chevron {
+  font-size: 16px;
+  color: var(--rule);
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.archive-toggle:hover .archive-chevron,
+.archive-toggle[aria-expanded="true"] .archive-chevron {
+  color: var(--ink);
+}
+
+.archive-panel {
+  padding-bottom: 48px;
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 64px;
+  align-items: start;
+}
+
+.archive-writing img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+.archive-objects {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
 /* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 800px) {
   header, main, footer { padding-left: 28px; padding-right: 28px; }
   .writing-section { grid-template-columns: 1fr; gap: 40px; }
   .info-section     { grid-template-columns: 1fr; gap: 40px; }
+  .archive-panel    { grid-template-columns: 1fr; gap: 40px; }
 }
 
 @media (max-width: 480px) {
