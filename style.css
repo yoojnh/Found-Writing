@@ -298,6 +298,10 @@ footer .copyright em {
   align-items: start;
 }
 
+.archive-panel[hidden] {
+  display: none;
+}
+
 .archive-writing img {
   width: 100%;
   height: auto;
