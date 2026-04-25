@@ -141,16 +141,7 @@
 
     </section>
 
-  <!-- ============================================================
-       ARCHIVE  — last 3 days
-       Populated automatically from ARCHIVE_DATA in the script.
-       ============================================================ -->
-  <section class="archive-section" id="archive">
-    <p class="section-label">Archive</p>
-    <div class="archive-list" id="archive-list"></div>
-  </section>
-
-</main>
+  </main>
 
 
   <!-- ============================================================
@@ -168,25 +159,6 @@
 
 
 <script>
-  /* ============================================================
-     ARCHIVE DATA
-     ── EDIT: add yesterday's entry here each day.
-     Copy one block, update the date key and all paths/captions.
-
-     Date key format: 'YYYY-MM-DD'
-     ============================================================ */
-  const ARCHIVE_DATA = {
-
-    // ── EXAMPLE ENTRY — duplicate this block for each past day ──
-    // '2026-04-24': {
-    //   writing : 'images/writing-002.png',
-    //   straight: { src: 'images/object-line-002.png', caption: 'Ruler' },
-    //   circle  : { src: 'images/object-circle-002.png', caption: 'Cup' },
-    // },
-
-  };
-  /* ── END ARCHIVE DATA ─────────────────────────────────────── */
-
   const dateEl  = null;
   const timeEl  = null;
   const yearEl  = document.getElementById('year');
@@ -210,73 +182,6 @@
 
   tick();
   setInterval(tick, 1000);
-  /* ── ARCHIVE RENDERER ──────────────────────────────────── */
-  function buildArchive() {
-    const list = document.getElementById('archive-list');
-    if (!list) return;
-
-    const now   = new Date();
-    const dates = [];
-
-    for (let i = 1; i <= 3; i++) {
-      const d = new Date(now);
-      d.setDate(now.getDate() - i);
-      const key = d.getFullYear() + '-' +
-                  pad(d.getMonth() + 1) + '-' +
-                  pad(d.getDate());
-      const label = MONTHS[d.getMonth()] + ' ' + pad(d.getDate()) + ', ' + d.getFullYear();
-      dates.push({ key, label });
-    }
-
-    dates.forEach(({ key, label }) => {
-      const entry = ARCHIVE_DATA[key];
-
-      const row = document.createElement('div');
-      row.className = 'archive-row' + (entry ? '' : ' archive-row--empty');
-
-      const header = document.createElement('button');
-      header.className = 'archive-toggle';
-      header.setAttribute('aria-expanded', 'false');
-      header.innerHTML = `<span class="archive-date">${label}</span>` +
-                         `<span class="archive-chevron">${entry ? '+' : '—'}</span>`;
-
-      row.appendChild(header);
-
-      if (entry) {
-        const panel = document.createElement('div');
-        panel.className = 'archive-panel';
-        panel.hidden = true;
-        panel.innerHTML = `
-          <div class="archive-writing">
-            <img src="${entry.writing}" alt="Writing, ${label}" />
-          </div>
-          <div class="archive-objects">
-            <div class="object-item">
-              <span class="object-tag">Straight</span>
-              <div class="object-photo-wrap"><img src="${entry.straight.src}" alt="${entry.straight.caption}" /></div>
-              <p class="object-caption">${entry.straight.caption}</p>
-            </div>
-            <div class="object-item">
-              <span class="object-tag">Circle</span>
-              <div class="object-photo-wrap"><img src="${entry.circle.src}" alt="${entry.circle.caption}" /></div>
-              <p class="object-caption">${entry.circle.caption}</p>
-            </div>
-          </div>`;
-        row.appendChild(panel);
-
-        header.addEventListener('click', () => {
-          const open = panel.hidden === false;
-          panel.hidden = open;
-          header.setAttribute('aria-expanded', String(!open));
-          header.querySelector('.archive-chevron').textContent = open ? '+' : '×';
-        });
-      }
-
-      list.appendChild(row);
-    });
-  }
-
-  buildArchive();
 </script>
 
 </body>
