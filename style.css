@@ -1,0 +1,252 @@
+/* ============================================================
+   Found Writing — style.css
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:   #1a1a18;
+  --muted: #1a1a18;
+  --rule:  #d8d6cf;
+  --bg:    #ffffff;
+  --mono:  'Courier New', Courier, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+}
+
+/* ── HEADER ─────────────────────────────────────────────── */
+header {
+  padding: 52px 56px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+header > .header-inner {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--rule);
+  padding-bottom: 10px;
+}
+
+header h1 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+header .issue {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 18px;
+  width: 220px;        ← 추가
+  text-align: left;    ← 추가
+}
+
+header .subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+/* ── MAIN ───────────────────────────────────────────────── */
+main { padding: 0 56px; }
+
+/* ── WRITING SECTION ────────────────────────────────────── */
+.writing-section {
+  padding: 72px 0 56px;
+  border-bottom: 0.5px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Writing image */
+.writing-image-wrap { width: 100%; }
+
+.writing-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+.placeholder-writing {
+  width: 100%;
+  min-height: 560px;
+  border: 0.5px dashed var(--rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.placeholder-writing span {
+  font-size: 13px;
+  color: var(--rule);
+  letter-spacing: 0.14em;
+}
+
+/* Writing meta (right column) */
+.writing-meta {
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.meta-label {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.meta-value {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+/* ── OBJECTS SECTION ────────────────────────────────────── */
+.objects-section {
+  padding: 56px 0;
+  border-bottom: 0.5px solid var(--rule);
+}
+
+.section-label {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.objects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.object-item { display: flex; flex-direction: column; gap: 10px; }
+
+.object-tag {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.object-photo-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.object-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder-object {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0.5px dashed var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-object span {
+  font-size: 13px;
+  color: var(--rule);
+  letter-spacing: 0.12em;
+}
+
+.object-caption {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ── INFO SECTION ───────────────────────────────────────── */
+.info-section {
+  padding: 56px 0 64px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.info-block { display: flex; flex-direction: column; gap: 14px; }
+
+.info-block h2 {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.datetime-date {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.datetime-time {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+}
+
+.info-block p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 600px;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer {
+  padding: 20px 56px 52px;
+  border-top: 0.5px solid var(--rule);
+}
+
+footer .copyright {
+  font-size: 13px;
+  color: var(--rule);
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+footer .copyright em {
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 800px) {
+  header, main, footer { padding-left: 28px; padding-right: 28px; }
+  .writing-section { grid-template-columns: 1fr; gap: 40px; }
+  .info-section     { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 480px) {
+  .objects-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       PAGE TITLE  — change to whatever you'd like
+       ============================================================ -->
+  <title>Found Writing</title>
+
+  <!-- style.css 와 같은 폴더에 두면 자동으로 연결됩니다 -->
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ── EDIT: issue number and date (right side)
+       ============================================================ -->
+<header>
+  <div class="header-inner">
+    <div>
+      <h1>Found Writing</h1>
+      <p class="subtitle">BY HAND, BY OBJECT</p>
+    </div>
+    <span class="issue" id="live-issue"></span>
+  </div>
+</header>
+
+  <main>
+
+    <!-- ==========================================================
+         WRITING IMAGE  +  META
+         ===========================================================
+
+         HOW TO ADD YOUR SCANNED WRITING:
+           1. Put your threshold-processed PNG in an "images/" folder.
+           2. Delete the placeholder <div> below.
+           3. Uncomment the <img> tag and update the src path.
+
+         ========================================================== -->
+     <section class="writing-section">
+
+  <div class="writing-image-wrap">
+    <img src="images/writing-001.png" alt="Writing, April 17 2025" />
+  </div>
+
+  <div class="writing-meta">
+    <!-- ── EDIT: time the writing was made ───────────────────── -->
+    <div>
+      <p class="meta-label">Time</p>
+      <p class="meta-value">17:32</p>
+    </div>
+
+    <!-- ── EDIT: location ────────────────────────────────────── -->
+    <div>
+      <p class="meta-label">Location</p>
+      <p class="meta-value">Home<br>The Hague, NL</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+    <!-- ==========================================================
+         TODAY'S OBJECTS
+         ===========================================================
+
+         HOW TO ADD PHOTOS:
+           1. Put photos in the "images/" folder.
+           2. Delete the placeholder <div> for each object.
+           3. Uncomment the <div class="object-photo-wrap"> block
+              and update the src path.
+
+         ========================================================== -->
+    <section class="objects-section">
+      <p class="section-label">Objects</p>
+
+      <div class="objects-grid">
+
+        <!-- ── EDIT: straight-line object ───────────────────────── -->
+        <div class="object-item">
+          <span class="object-tag">Straight</span>
+
+          <div class="object-photo-wrap">
+            <img src="images/object-line-001.png"/>
+          </div>
+
+          <p class="object-caption">iPhone 15</p>
+        </div>
+
+        <!-- ── EDIT: circular object ─────────────────────────────── -->
+        <div class="object-item">
+          <span class="object-tag">Circle</span>
+
+          <div class="object-photo-wrap">
+            <img src="images/object-circle-001.png"/>
+          </div> 
+
+          <p class="object-caption">Ring</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================================
+         DATE / TIME  +  PROJECT DESCRIPTION
+         ===========================================================
+
+         Date & time are live — no editing needed.
+
+         ── EDIT: project description text below.
+
+         ========================================================== -->
+    <section class="info-section">
+
+      <div class="info-block">
+        <h2><strong>Since</strong></h2>
+        <div>
+          <p> April 17, 2026</p>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <h2><strong>About this project</strong></h2>
+
+        <!-- ── EDIT: your project description ───────────────────── -->
+        <p>
+          An everyday object can hold memory, compress time, or become the unlikely starting point of a thought. Each piece here is written using two of them — one straight, one circular — as guides for the hand. 
+          <br>
+          <br>
+          The object determines the line. The line determines the thought. The objects used each day are documented alongside the writing.
+        </p>
+        <!-- ── END EDIT ──────────────────────────────────────────── -->
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+       ── EDIT: replace "Your Name" with your name
+       ============================================================ -->
+  <footer>
+    <p class="copyright">
+      &copy; <em id="year"></em> &nbsp;
+      All writings and images originate from and belong solely to
+      <em>J.H Yoo</em>.
+      Unauthorized reproduction is prohibited.
+    </p>
+  </footer>
+
+
+<script>
+  const dateEl  = null;
+  const timeEl  = null;
+  const yearEl  = document.getElementById('year');
+  const issueEl = document.getElementById('live-issue');
+
+  const MONTHS = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const now  = new Date();
+    const time = pad(now.getHours()) + ' : ' + pad(now.getMinutes());
+
+    yearEl.textContent = now.getFullYear();
+
+    // header: 프로젝트 시작일 — 오늘 날짜만 표시
+    const today = MONTHS[now.getMonth()] + ' ' + pad(now.getDate()) + ', ' + now.getFullYear();
+    issueEl.textContent = today + '  —  ' + time;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
+
+</body>
+</html>
