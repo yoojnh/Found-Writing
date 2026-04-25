@@ -178,11 +178,11 @@
   const ARCHIVE_DATA = {
 
     // ── EXAMPLE ENTRY — duplicate this block for each past day ──
-    '2026-04-24': {
-      writing : 'images/writing-001.png',
-      straight: { src: 'images/object-line-001.png', caption: 'iPhone 15' },
-      circle  : { src: 'images/object-circle-001.png', caption: 'Ring' },
-    },
+    // '2026-04-24': {
+    //   writing : 'images/writing-002.png',
+    //   straight: { src: 'images/object-line-002.png', caption: 'Ruler' },
+    //   circle  : { src: 'images/object-circle-002.png', caption: 'Cup' },
+    // },
 
   };
   /* ── END ARCHIVE DATA ─────────────────────────────────────── */
@@ -265,10 +265,10 @@
         row.appendChild(panel);
 
         header.addEventListener('click', () => {
-          const open = panel.hidden === false;
-          panel.hidden = open;
-          header.setAttribute('aria-expanded', String(!open));
-          header.querySelector('.archive-chevron').textContent = open ? '+' : '×';
+          const isOpen = !panel.hidden;
+          panel.hidden = isOpen;
+          header.setAttribute('aria-expanded', String(!isOpen));
+          header.querySelector('.archive-chevron').textContent = isOpen ? '+' : '×';
         });
       }
 
